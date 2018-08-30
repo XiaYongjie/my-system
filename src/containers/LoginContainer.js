@@ -4,11 +4,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import Login from "../pages/login/login"
 class AppContainer extends React.Component {
     render() {
         return (
-            <div />
+            <Login />
         )
     }
 }
