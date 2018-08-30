@@ -10,8 +10,10 @@ import Login from "./pages/login/login"
 ReactDOM.render(  
   <Provider store={store}>
     <Router>
+          <div>
           <Route path="/" component= {Home}/>
           <Route path="/login" component = {Login}/>
+          </div>
     </Router>
   </Provider>, document.getElementById('root'));
 registerServiceWorker();
