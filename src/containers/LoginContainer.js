@@ -5,24 +5,25 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Login from "../pages/login/login"
-class AppContainer extends React.Component {
+import * as LoginAction from "../action/loginAction";
+class LoginContainer extends React.Component {
     render() {
         return (
-            <Login />
+            <Login {...this.props} />
         )
     }
 }
-// const mapStateToProps = (state) => {
-//     const  OrderHome  = state.get('OrderHome').toJS();
-//     return {
-//         OrderHome
-//     };
-// };
+const mapStateToProps = (state) => {
+    const  LoginReducer  = state.get('LoginReducer').toJS();
+    return {
+        LoginReducer
+    };
+};
 
-// const mapDispatchToProps = (dispatch) => {
-//     const OrderHomeActions = bindActionCreators(action1Creators, dispatch);
-//     return {
-//         OrderHomeActions
-//     };
-// };
-// export default connect(mapStateToProps,mapDispatchToProps)(AppContainer);
+const mapDispatchToProps = (dispatch) => {
+    const LoginActions = bindActionCreators(LoginAction, dispatch);
+    return {
+        LoginActions
+    };
+};
+export default connect(mapStateToProps,mapDispatchToProps)(LoginContainer);

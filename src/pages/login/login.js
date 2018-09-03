@@ -5,17 +5,13 @@ import { Input, Button } from "antd";
 export default class OrderHome extends Component {
   constructor(){
     super()
-      this.state={
-        name:"",
-        password:""
-
-      }
   }
   onClick = () => {
     let name = this.refs.name.input.value;
     let password = this.refs.password.input.value;
-    console.log(name)
-    console.log(password)
+    const {LoginReducer, LoginActions} = this.props;
+    LoginActions.login(name,password);
+    
   }
   render() {
     return (<div className="login_parent">
