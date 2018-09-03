@@ -1,16 +1,23 @@
 import React, { Component } from "react";
 import './login.less'
 import { Input, Button } from "antd";
-
+import { Link } from 'react-router-dom';
 export default class OrderHome extends Component {
-  constructor(){
-    super()
-  }
   onClick = () => {
     let name = this.refs.name.input.value;
     let password = this.refs.password.input.value;
-    const {LoginReducer, LoginActions} = this.props;
-    LoginActions.login(name,password);
+    const { LoginActions} = this.props;
+    console.log("props",this.props)
+    LoginActions.login(name,password,(data)=>{
+      console.log("data",data)
+      return(
+        <Link to="/home">
+          
+        </Link>
+      )
+    },(msg)=>{
+      console.log("msg",msg)
+    });
     
   }
   render() {

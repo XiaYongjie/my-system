@@ -65,8 +65,10 @@ HTTPUtil.post = function(url, formData,successCallBack,errorCallBack) {
           .then((response) => { 
             console.log("response",response)
             resolve(response);  
-              if(response.status===0&&successCallBack){
-                successCallBack(response.data)
+              if(response.status===0){
+                  if(successCallBack){
+                    successCallBack(response.data)
+                  }
               }else{
                   if(errorCallBack){
                       errorCallBack(response.msg)

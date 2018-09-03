@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './index.css';
 import registerServiceWorker from './registerServiceWorker'
 import store from "./store/configStores"
-import Home from "./pages/home/homePage"
+import Home from "./containers/homeContainers"
 import LoginContainer from "./containers/LoginContainer" 
 ReactDOM.render(  
   <Provider  store={store}>
