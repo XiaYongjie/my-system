@@ -20,21 +20,20 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <Layout style={{
-                minHeight: "100vh"
-            }}>
+            <Layout className="home_page">
                 <Sider
                     collapsible
                     collapsed={this.state.collapsed}
                     onCollapse={this.onCollapse}>
-                    <div>
-                        <Avatar size={64} icon="user"/>F
+                    <div className="head_parent">
+                        <Avatar size={this.state.collapsed ? 32: 64} icon="user"/>F
                     </div>
                     <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-                        <Menu.Item key="1">
-                            <Icon type="pie-chart"/>
-                            <span>Option 1</span>
-                        </Menu.Item>
+                        <SubMenu key="1"
+                            title={<span><Icon type="user"/>{this.state.collapsed ? "":"员工信息管理" } </span>}>
+                            <Menu.Item key="3">基本信息</Menu.Item>
+                            <Menu.Item key="4">信息修改</Menu.Item>
+                        </SubMenu>
                         <Menu.Item key="2">
                             <Icon type="desktop"/>
                             <span>Option 2</span>
@@ -59,11 +58,9 @@ export default class HomePage extends Component {
                     </Menu>
                 </Sider>
                 <Layout>
-                    <Header
-                        style={{
-                        background: "#fff",
-                        padding: 0
-                    }}/>
+                    <Header className="header_parent">
+                    企业员工管理系统
+                    </Header>
                     <Content
                         style={{
                         margin: "0 16px"
@@ -88,7 +85,7 @@ export default class HomePage extends Component {
                         style={{
                         textAlign: "center"
                     }}>
-                        Ant Design ©2018 Created by Ant UED
+                        Design ©2018 Created by XYJ 
                     </Footer>
                 </Layout>
             </Layout>
