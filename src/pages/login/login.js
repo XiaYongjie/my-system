@@ -28,8 +28,7 @@ export default class OrderHome extends Component {
                     </div>
                     <Button
                         type="primary"
-                        className="login
-                       _button"
+                        className="login_button"
                         onClick={this.onClick}>登陆</Button>
                 </div>
 

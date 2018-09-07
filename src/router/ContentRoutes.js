@@ -1,34 +1,34 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-import { Layout } from 'antd';
-import { Switch, Route } from 'react-router-dom';
+import {Layout, Breadcrumb} from 'antd';
+import {Switch, Route} from 'react-router-dom';
 
 // import './ContentRoutes.scss';
 
-// import HomePage from '../pages/HomePage';
-// import AboutPage from '../pages/AboutPage';
-// import NotFoundPage from '../pages/NotFoundPage';
+import Project from '../pages/project/project';
+import UserInfo from '../pages/userinfo/userinfo';
 
-const { Content } = Layout;
+const {Content} = Layout;
 
 export const ROUTES_ITEMS = [
-    // {
-    //     to: '/',
-    //     text: 'Home',
-    //     icon: 'home',
-    //     exact: true,
-    //     component: HomePage,
-    // }, {
-    //     to: '/about',
-    //     text: 'About',
-    //     icon: 'info-circle-o',
-    //     component: AboutPage,
-    // },
+    {
+        to: '/home/project',
+        text: 'project',
+        icon: 'Project',
+        component: Project
+    }, {
+        to: '/home/userInfo',
+        text: 'UserInfo',
+        icon: 'info-circle-o',
+        component: UserInfo
+    }
 ];
 
-const ROUTES = ROUTES_ITEMS.map(route => (
-    <Route key={route.to} path={route.to} exact={route.exact} component={route.component} />
-));
+const ROUTES = ROUTES_ITEMS.map(route => (<Route
+    key={route.to}
+    path={route.to}
+    exact={route.exact}
+    component={route.component}/>));
 
 export default class ContentRoutes extends Component {
 
@@ -37,12 +37,14 @@ export default class ContentRoutes extends Component {
     render() {
         return (
             <Content className="content-routes">
+                <Breadcrumb style={{
+                    margin: "16px 0"
+                }}>
+                    <Breadcrumb.Item>User</Breadcrumb.Item>
+                    <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                </Breadcrumb>
                 <Switch>
-
                     {ROUTES}
-
-                    <Route component={NotFoundPage} />
-
                 </Switch>
             </Content>
         );
