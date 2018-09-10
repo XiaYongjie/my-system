@@ -1,7 +1,4 @@
-/**
- * Created by nipeng on 2017/7/8.
- * 登陆reducer
- */
+
 
 import * as types from '../action/actionType';
 import {Map} from 'immutable';

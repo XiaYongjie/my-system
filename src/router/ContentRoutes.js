@@ -6,7 +6,7 @@ import {Switch, Route} from 'react-router-dom';
 // import './ContentRoutes.scss';
 
 import Project from '../pages/project/project';
-import UserInfo from '../pages/userinfo/userinfo';
+import UserInfoSetting from '../pages/userinfo/userInfoSetting';
 
 const {Content} = Layout;
 
@@ -20,7 +20,7 @@ export const ROUTES_ITEMS = [
         to: '/home/userInfo',
         text: 'UserInfo',
         icon: 'info-circle-o',
-        component: UserInfo
+        component: UserInfoSetting
     }
 ];
 
