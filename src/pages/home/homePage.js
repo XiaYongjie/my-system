@@ -1,14 +1,14 @@
 import React, {Component} from "react";
-import {Layout, Menu, Icon, Avatar} from "antd";
+import {Layout, Menu, Icon} from "antd";
 import ConterntRouter from "../../router/ContentRoutes";
 import { Link } from 'react-router-dom';
 import "./homePage.less";
-const {Header, Footer, Sider} = Layout;
+import Header from "../../common/head"
+const {Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 export default class HomePage extends Component {
 
     constructor() {
-        console.log("-------------HomePage--------------------")
         super();
         this.state = {
             collapsed: false
@@ -28,11 +28,7 @@ export default class HomePage extends Component {
                     collapsed={this.state.collapsed}
                     onCollapse={this.onCollapse}>
                     <div className="head_parent">
-                        <Avatar
-                            size={this.state.collapsed
-                            ? 32
-                            : 64}
-                            icon="user"/>
+                    企业员工管理系统
                     </div>
                     <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
                         <SubMenu
@@ -81,7 +77,7 @@ export default class HomePage extends Component {
                     </Menu>
                 </Sider>
                 <Layout>
-                    <Header className="header_parent">
+                    <Header className="header_parent" {...this.props}>
                         企业员工管理系统
                     </Header>
                         <ConterntRouter/>

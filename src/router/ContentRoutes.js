@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Layout, Breadcrumb} from 'antd';
+import {Layout} from 'antd';
 import {Switch, Route} from 'react-router-dom';
 
 // import './ContentRoutes.scss';
@@ -37,12 +37,6 @@ export default class ContentRoutes extends Component {
     render() {
         return (
             <Content className="content-routes">
-                <Breadcrumb style={{
-                    margin: "16px 0"
-                }}>
-                    <Breadcrumb.Item>User</Breadcrumb.Item>
-                    <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                </Breadcrumb>
                 <Switch>
                     {ROUTES}
                 </Switch>
