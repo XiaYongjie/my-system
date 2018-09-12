@@ -1,7 +1,8 @@
 
 var HTTPUtil = {
 }; 
-const baseUrl= "http://192.168.1.147:8080";
+
+const baseUrl= "http://192.168.1.91:1212";
 /** 
  * 基于 fetch 封装的 GET请求 
  * @param url 
