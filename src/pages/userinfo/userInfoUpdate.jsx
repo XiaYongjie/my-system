@@ -1,12 +1,19 @@
 import React, {Component} from "react";
-import {Form, Input, Select, AutoComplete} from 'antd';
-import "./userinfoUpdate.less"
+import {Form, Input, Button} from 'antd';
+import "./userinfoUpdate.less";
+import Address from '../../containers/AddressSelecterContainers'
 const FormItem = Form.Item;
-const Option = Select.Option;
-const AutoCompleteOption = AutoComplete.Option;
 
 class UserInfoView extends Component {
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.form.validateFieldsAndScroll((err, values) => {
+          if (!err) {
+            console.log('Received values of form: ', values);
+          }
+        });
+      }
     render() {
         const {getFieldDecorator} = this.props.form;
         return (
@@ -42,10 +49,7 @@ class UserInfoView extends Component {
                         <FormItem layout="vertical" label="手机号">
                             {getFieldDecorator('phone', {
                                 rules: [
-                                    {
-                                        type: 'phone',
-                                        message: '请输入正确的手机号'
-                                    }, {
+                                     {
                                         required: true,
                                         message: '请输入你的手机号!'
                                     }
@@ -54,7 +58,7 @@ class UserInfoView extends Component {
 
                         </FormItem>
 
-                        <FormItem  label="简介">
+                        <FormItem label="简介">
                             {getFieldDecorator('profile', {
                                 rules: [
                                     {
@@ -64,17 +68,17 @@ class UserInfoView extends Component {
                             })(<Input.TextArea placeholder="简介" rows={4}/>)}
                         </FormItem>
 
-                        <FormItem label="">
+                        <FormItem label="地址">
                             {getFieldDecorator('geographic', {
                                 rules: [
                                     {
                                         required: true,
                                         message: ""
-                                    },
+                                    }
                                 ]
-                            })(<Input/>)}
+                            })(<Address/>)}
                         </FormItem>
-                        <FormItem label="">
+                        <FormItem label="详细地址">
                             {getFieldDecorator('address', {
                                 rules: [
                                     {
@@ -82,9 +86,12 @@ class UserInfoView extends Component {
                                         message: "请输入详细地址"
                                     }
                                 ]
-                            })
-                            (<Input/>)}
+                            })(<Input/>)}
                         </FormItem>
+
+                        <Button htmlType="submit" type="primary"> 提交
+                        
+                        </Button>
                     </Form>
                 </div>
 
